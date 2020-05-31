@@ -1,11 +1,33 @@
 function sortByColumn(n) {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    var table, rows, switching, i, x, y, shouldSwitch, dir, headers, switchcount = 0;
     table = document.getElementById("customers");
     switching = true;
     dir = "asc";
     while (switching) {
         switching = false;
         rows = table.rows;
+
+        if(dir == "asc"){
+            headers = rows[0];
+            for(k = 0; k < headers.getElementsByTagName("TH").length; k++){
+                if( k == n){
+                    headers.getElementsByTagName("TH")[k].getElementsByTagName("span")[0].innerHTML = "&#8595;";
+                } else{
+                    headers.getElementsByTagName("TH")[k].getElementsByTagName("span")[0].innerHTML = "";
+                }
+            }
+        }
+        else{
+            headers = rows[0];
+            for(k = 0; k < headers.getElementsByTagName("TH").length; k++){
+                if( k == n){
+                    headers.getElementsByTagName("TH")[k].getElementsByTagName("span")[0].innerHTML = "&#8593;";
+                } else{
+                    headers.getElementsByTagName("TH")[k].getElementsByTagName("span")[0].innerHTML = "";
+                }
+            }
+        }
+
         for (i = 1; i < (rows.length - 1); i++) {
             shouldSwitch = false;
             x = rows[i].getElementsByTagName("TD")[n];

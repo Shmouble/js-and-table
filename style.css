@@ -1,0 +1,13 @@
+#container{
+    margin: 50px 0 0 50px;
+}
+
+table{
+    border-collapse: collapse;
+    margin-top: 5px;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 8px;
+}
